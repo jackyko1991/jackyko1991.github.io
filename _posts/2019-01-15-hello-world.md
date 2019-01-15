@@ -7,7 +7,7 @@ tags: [sample]
 image: 2019-01-15-hello-world/hello-world.jpg
 ---
 
-Welcome to my Github page. This is my first post.
+Welcome to my first Github page post.
 
 ## Blog Template
 
