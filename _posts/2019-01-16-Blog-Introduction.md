@@ -4,7 +4,7 @@ title: "Blog Introduction"
 author: "Jacky Ko"
 categories: journal
 tags: [documentation]
-image: 2019-01-16-Blog-Introduction./2019-01-16-Blog-Introduction.jpg
+image: 2019-01-16-Blog-Introduction/2019-01-16-Blog-Introduction.jpg
 ---
 
 Hi everyone! I'm Jacky and working as a software developer on medical images. By the time I issuing this post, I have been worked for 5 years in this area. It is very hard to newbies to enter this discipline as it includes both computer and medical knowledges. The blog's aim is to deliver my experiences in this domain to shorten dummies learning period and lowering the entry difficulty.
