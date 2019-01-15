@@ -11,4 +11,4 @@ Welcome to my Github page. This is my first post.
 
 ## Blog Template
 
-This page is built via Github page function with [Jekyll](https://jekyllrb.com/) and [Lagrange](https://github.com/lenpaul/lagrange)
+This page is built via Github page with [Jekyll](https://jekyllrb.com/) and [Lagrange](https://github.com/lenpaul/lagrange)
