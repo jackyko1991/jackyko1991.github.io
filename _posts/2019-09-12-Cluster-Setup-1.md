@@ -15,7 +15,7 @@ The HPC cluster is an assembly of one or more computational devices, which can b
 - Network
 - Storage
 
-![alt text](./assets/img/2019-09-12-Cluster-Setup-Part-1/how-hpc-works.jpg "Main components of HPC cluster")
+![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/how-hpc-works.jpg "Main components of HPC cluster")
 
 
 
