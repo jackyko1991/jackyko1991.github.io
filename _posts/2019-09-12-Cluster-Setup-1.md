@@ -44,7 +44,7 @@ There are a number of cluster resources management systems available under Linux
 
 ![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/swarm+kubernetes.png "Docker and Kubernetes")
 
-Each of the resource management system has it's unique features. The combined usage of Kubernetes and Docker provides flexible cluster orchestration at enterprise level. What if I am only a small development team and wish to automate GPU scheduling? Slurm do support GPUs as the GRES (generic resource) and thus would be the preferable management for small cluster system. Slurm has been supported in the most popular cloud services providers including AWS, Azure and GCP, thus provides high flexibility to mix private and public clusters.
+Each of the resource management system has it's unique features. The combined usage of Kubernetes and Docker provides flexible cluster orchestration at enterprise level. What if I am only a small development team and wish to automate GPU scheduling? Slurm do support GPUs as the GRES (generic resource) and thus would be the preferable management tool for small cluster system. Slurm also has been supported by the most popular cloud services providers including AWS, Azure and GCP, thus provides high flexibility to mix private and public clusters.
 
 ![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/pt2.jpg "Slurm support in AWS")
 
