@@ -118,9 +118,11 @@ sudo chmod 777 -R /clusterfs #R/W permission for all users to the NFS directory
 3. Auto mounting
 We want the NFS directory automatically mounted on the child nodes when they boot.
 	1. Edit `/etc/fstab` by adding:
-	```
+	
+	```bash
 	<master node ip>:/clusterfs    /clusterfs    nfs    defaults   0 0
 	```
+
 	This line refers to mounting shared directory at head node to the "local" folder `/clusterfs` as NFS.
 	2. Actually mount the drive:
 	`sudo mount -a`
