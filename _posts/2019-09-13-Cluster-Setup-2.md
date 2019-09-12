@@ -4,7 +4,7 @@ title: "HPC Cluster Setup Part 2 - Hardware and NFS Setup"
 author: "Jacky Ko"
 categories: journal
 tags: [documentation,clusters,hpc,slurm]
-image: 2019-09-12-Cluster-Setup-Part-2/pi-cluster.png
+image: 2019-09-13-Cluster-Setup-Part-2/pi-cluster.png
 ---
 To setup a HPC cluster, you should always get the hardware ready first.
 
