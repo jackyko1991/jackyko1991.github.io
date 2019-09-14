@@ -159,6 +159,7 @@ Ok we finally comes to Kubenetes packages. We need to get **kubectl** and **mini
 	```
 	A list of commands will be displayed.
 
+Coming next we will introduce the basic concepts in Kubernetes.
 
 ## References
 
