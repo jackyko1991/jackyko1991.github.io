@@ -36,15 +36,18 @@ Take a look at this [post](https://www.reddit.com/r/MachineLearning/comments/6xz
 
 ## Selection of Distributed Resources Management Software
 There are a number of cluster resources management systems available under Linux:
-- [Slurm](https://slurm.schedmd.com/overview.html)
-- [Kubernetes](https://kubernetes.io/)
-- [Torque PBS](https://help.ubuntu.com/community/TorquePbsHowto)
-- [HTCondor (minihtcondor for single node cluster)](https://research.cs.wisc.edu/htcondor/)
+- Task scheduler:
+	- [Slurm](https://slurm.schedmd.com/overview.html)
+	- [Torque PBS](https://help.ubuntu.com/community/TorquePbsHowto)
+	- [HTCondor (minihtcondor for single node cluster)](https://research.cs.wisc.edu/htcondor/)
+- Container Solution:
+	- [Kubernetes](https://kubernetes.io/)
+	- [Singularity](https://singularity.lbl.gov/)
 - and more...
 
 ![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/swarm+kubernetes.png "Docker and Kubernetes")
 
-Each of the resource management system has it's unique features. The combined usage of Kubernetes and Docker provides flexible cluster orchestration at enterprise level. What if I am only a small development team and wish to automate GPU scheduling? Slurm do support GPUs as the GRES (generic resource) and thus would be the preferable management tool for small cluster system. Slurm also has been supported by the most popular cloud services providers including AWS, Azure and GCP, thus provides high flexibility to mix private and public clusters.
+Each of the resource management system has it's unique features. The combined usage of Kubernetes and Singularity with Docker provides flexible cluster orchestration as a container solution. What if I am only a small development team and wish to automate GPU scheduling? Slurm do support GPUs as the GRES (generic resource) and thus would be the preferable management tool for small cluster system. Slurm also has been supported by the most popular cloud services providers including AWS, Azure and GCP, thus provides high flexibility to mix private and public clusters.
 
 ![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/pt2.jpg "Slurm support in AWS")
 
