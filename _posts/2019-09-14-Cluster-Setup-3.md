@@ -22,17 +22,17 @@ You may get deeper look at Kubernetes through the official [documentations](http
 
 ## What is Container?
 
-Let's say you want to get a simple Workpress webpage. Your system should include different services and softwares like Apache Server, MySQL database, PHP and Wordpress, sometime you may also want to install GUI interface for MySQL with phpMyAdmin. This small page already requires users an hour's time to setup from baremetal nodes. The procedure is quite standard yet requires by millions of users. Could we set up a sandbox environment so that everyone can host their webpage within shorter period of time?
+Let's say you want to get a simple Wordpress page in LAMP stack. Your system should include services and softwares like Apache Server, MySQL database, PHP and Wordpress, sometime you may also want to install GUI interface for MySQL with phpMyAdmin. This small page already requires users an hour's time to setup from baremetal nodes. The procedure is quite standard yet required by millions of users. Could we set up a sandbox environment so that everyone can host their webpage within shorter period of time?
 
 ![alt text](../assets/img/2019-09-14-Cluster-Setup-Part-3/vm-vs-container.png "Virtual machines vs containers")
 
-Also web hosting service may only requires little computational power for a modern PC. If you want to deploy another services, would they interfere with each other? Could we reduce the deployment time and isolating different applications? One may say virtual machines (VM) are good choices, however the VMs cannot share low level resources among each other, causing redundant computational power loss. Container technology hence is invented to allow different application to share same OS level resources, thus increase the computational efficiency. 
+Also web hosting service may only requires little computational power for a modern PC. If you want to deploy another services, would they interfere with each other? Could we reduce the deployment time and isolating different applications? One may say virtual machines (VM) are good choices, however the VMs cannot share low level resources among each other, causing redundant computational power loss. Container technology hence is invented to allow different application to share same OS level resources, thus increases the computational efficiency. 
 
 ![alt text](../assets/img/2019-09-14-Cluster-Setup-Part-3/kubernetes-architecture.png "Kubenetes architecture")
 
 ## Hello Kube - Minikube
 
-Before we start to build the Kubenetes cluster, let's familiarize the basic concept first. To begin with, we will build a single node Kubenetes server. 
+To begin with, we will build a single node Kubenetes server to familiarize the basic concept first. 
 
 **Minikube** is a minimal pack that establishes Kubernetes stack which hosted by local VM engines like VirtualBox or KVM. The small size tool provides ideal environment for local developments and tests.
 
