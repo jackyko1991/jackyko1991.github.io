@@ -132,6 +132,6 @@ The hardware part is done. Coming next we will start to install the job schedule
 
 ## References
 
-[Building a Raspberry Pi Cluster](https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd)
-[Slurm documentation](https://slurm.schedmd.com/documentation.html)
-[Running a Job on HPC using Slurm](https://hpcc.usc.edu/support/documentation/slurm/)
+- [Building a Raspberry Pi Cluster](https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd)
+- [Slurm documentation](https://slurm.schedmd.com/documentation.html)
+- [Running a Job on HPC using Slurm](https://hpcc.usc.edu/support/documentation/slurm/)
