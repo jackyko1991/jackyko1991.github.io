@@ -16,7 +16,7 @@ You may get deeper look at Kubernetes through the official [documentations](http
 1. [What is Container?](#what-is-container?)
 2. [Hello Kube - Minikube](#hello-kube---minikube)
 	1. [KVM Installation](#kvm-installation)
-	2. [Docker Installation](#docker-installation)
+	2. [Docker Installation (Optional)](#docker-installation-(optional))
 	3. [Minikube Installation](#minikube-installation)
 3. [References](#references)
 
