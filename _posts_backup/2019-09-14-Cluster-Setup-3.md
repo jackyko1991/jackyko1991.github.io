@@ -149,7 +149,7 @@ Ok we finally comes to Kubenetes packages. We need to get **kubectl** and **mini
 	```bash
 	chmod +x minikube
 	```
-	2. Again you need to add minikube to user PATH
+	2. Again you need to install minikube to user PATH
 	```bash
 	sudo install minikube /usr/local/bin
 	```
