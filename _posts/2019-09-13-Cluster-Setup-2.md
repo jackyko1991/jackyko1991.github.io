@@ -3,7 +3,7 @@ layout: post
 title: "HPC Cluster Setup Part 2 - Hardware and NFS Setup"
 author: "Jacky Ko"
 categories: journal
-tags: [documentation,clusters,hpc,slurm]
+tags: [documentation,clusters,hpc]
 image: 2019-09-13-Cluster-Setup-Part-2/pi-cluster.jpg
 ---
 To setup a HPC cluster, you should always get the hardware ready first.
@@ -128,10 +128,9 @@ We want the NFS directory automatically mounted on the child nodes when they boo
 	`sudo mount -a`
 	Once you create a file in any node's `/clusterfs` it will be RWable in all other nodes.
 
-The hardware part is done. Coming next we will start to install the job scheduler **Slurm**
+The hardware part is done. Coming next we will start to install cluster management framework **Kubernetes**. Later on we may include job scheduler **Slurm** as one of the container service within the Kubernetes cluster.
 
 ## References
-
 - [Building a Raspberry Pi Cluster](https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd)
 - [Slurm documentation](https://slurm.schedmd.com/documentation.html)
 - [Running a Job on HPC using Slurm](https://hpcc.usc.edu/support/documentation/slurm/)
