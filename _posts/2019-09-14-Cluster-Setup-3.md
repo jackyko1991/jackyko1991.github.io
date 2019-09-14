@@ -12,26 +12,32 @@ image: 2019-09-14-Cluster-Setup-Part-3/kubernetes.png
 You may get deeper look at Kubernetes through the official [documentations](https://kubernetes.io/). Here we only provide a minimal tutorial on GPU cluster setup.
 
 ## Contents
+
 1. [What is Container?](#what-is-container?)
-2. [Hello Kube - Minikube](#Hello-Kube---Minikube)
-	1. [KVM Installation](#KVM-Installation)
-	2. [Docker Installation](#Docker-Installation)
-	3. [Minikube Installation](#Minikube-Installation)
-3. [References](#References)
+2. [Hello Kube - Minikube](#hello-kube---minikube)
+	1. [KVM Installation](#kvm-installation)
+	2. [Docker Installation](#docker-installation)
+	3. [Minikube Installation](#minikube-installation)
+3. [References](#references)
 
 ## What is Container?
-Apache Server, MySQL database, PHP and Wordpress, sometime you may also want to install GUI interface for MySQL with phpMyAdmin. This small page already requires users an hour's time to setup from baremetal nodes.
 
-![alt text](../assets/img/2019-09-15-Cluster-Setup-Part-3/vm-vs-container.png "Virtual Machines vs Containers")
+Let's say you want to get a simple Workpress webpage. Your system should include different services and softwares like Apache Server, MySQL database, PHP and Wordpress, sometime you may also want to install GUI interface for MySQL with phpMyAdmin. This small page already requires users an hour's time to setup from baremetal nodes. The procedure is quite standard yet requires by millions of users. Could we set up a sandbox environment so that everyone can host their webpage within shorter period of time?
 
-The web hosting service may only requires little computational power for a modern PC. If you want to deploy another services, would they interfere with each other? Could we reduce the deployment time and isolating different applications? One may say virtual machines (VM) are good choices, however the VMs cannot share low level resources among each other, causing redundant computational power loss. Container technology hence is invented to allow different application to share same OS level resources, thus increase the computational efficiency. 
+![alt text](../assets/img/2019-09-14-Cluster-Setup-Part-3/vm-vs-container.png "Virtual machines vs containers")
+
+Also web hosting service may only requires little computational power for a modern PC. If you want to deploy another services, would they interfere with each other? Could we reduce the deployment time and isolating different applications? One may say virtual machines (VM) are good choices, however the VMs cannot share low level resources among each other, causing redundant computational power loss. Container technology hence is invented to allow different application to share same OS level resources, thus increase the computational efficiency. 
+
+![alt text](../assets/img/2019-09-14-Cluster-Setup-Part-3/kubernetes-architecture.png "Kubenetes architecture")
 
 ## Hello Kube - Minikube
+
 Before we start to build the Kubenetes cluster, let's familiarize the basic concept first. To begin with, we will build a single node Kubenetes server. 
 
 **Minikube** is a minimal pack that establishes Kubernetes stack which hosted by local VM engines like VirtualBox or KVM. The small size tool provides ideal environment for local developments and tests.
 
 ### Hypervisor Installation
+
 Kubenetes runs on VM engines. We need to get the VM engine (hypervisor) first. Here we demonstrate installation of KVM, while [VirtualBox](https://www.virtualbox.org/wiki/Downloads) also works well with Kubernetes.
 
 1. Check hardware support
@@ -71,6 +77,7 @@ Kubenetes runs on VM engines. We need to get the VM engine (hypervisor) first. H
 	```
 
 ## Docker Installation (Optional)
+
 1. Docker dependencies
 	```bash
 	sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -111,6 +118,7 @@ Kubenetes runs on VM engines. We need to get the VM engine (hypervisor) first. H
 	```
 
 ## Minikube Installation
+
 Ok we finally comes to Kubenetes packages. We need to get **kubectl** and **minikube**.
 
 1. kubectl
@@ -141,7 +149,7 @@ Ok we finally comes to Kubenetes packages. We need to get **kubectl** and **mini
 	```bash
 	chmod +x minikube
 	```
-	2. Again you need to add minikube to user PATH
+	2. Again you need to install minikube to user PATH
 	```bash
 	sudo install minikube /usr/local/bin
 	```
@@ -151,6 +159,8 @@ Ok we finally comes to Kubenetes packages. We need to get **kubectl** and **mini
 	```
 	A list of commands will be displayed.
 
+Coming next we will introduce the basic concepts in Kubernetes.
 
 ## References
+
 - [Kubernetes](https://kubernetes.io/)
