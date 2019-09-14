@@ -2,6 +2,7 @@
 layout: page
 title: Contact
 ---
+I am a Phd student from the Department of Imaging and Interventional Radiology, The Chinese University of Hong Kong.
 
 Github Profile: [https://github.com/jackyko1991](https://github.com/jackyko1991)
 
