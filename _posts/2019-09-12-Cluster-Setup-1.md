@@ -17,7 +17,7 @@ The HPC cluster is an assembly of one or more computational devices, which can b
 
 ![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/how-hpc-works.jpg "Main components of HPC cluster")
 
-The HPC architecture connects multiple computers via networks to form a cluster. In clustering we name the computers as "nodes". Each node may carry specific functions including job scheduling and distribution, GPU computation, heterogeneous CPU architecture computations (ARM, FPGA nodes) and data storage. Even though individual devices may only carry very low computational ability, every node are playing important role in terms of resource leveraging. The components operates seamless together to complete a diverse set of tasks.
+The HPC architecture connects multiple computers via networks to form a cluster. In clustering we name the computers as "nodes". Each node may carry specific functions including job scheduling and distribution, GPU computation, heterogeneous CPU architecture computations (ARM, FPGA nodes) and data storage. Even though individual devices may only carry very low computational ability, every node is playing an important role in terms of resource leveraging. The components operate seamless together to complete a diverse set of tasks.
 
 ### Detailed device list of HPC cluster
 ![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/HPCCluster.jpg "HPC cluster")
