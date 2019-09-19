@@ -51,7 +51,7 @@ Each of the resource management system has it's unique features. The combined us
 
 ![alt text](../assets/img/2019-09-12-Cluster-Setup-Part-1/pt2.jpg "Slurm support in AWS")
 
-In the coming posts there will be hand on steps to setup a Kubernetes and Slurm cluster.
+In the coming posts there will be hand on steps to setup a Slurm cluster.
 
 ## References
 - [Building a Raspberry Pi Cluster](https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd)

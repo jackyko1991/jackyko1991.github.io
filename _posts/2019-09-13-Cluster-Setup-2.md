@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "HPC Cluster Setup Part 2 - Hardware and NFS Setup"
+title: "HPC Cluster Setup Part 2 - Hardware, NFS and NIS Setup"
 author: "Jacky Ko"
 categories: journal
 tags: [documentation,clusters,hpc]
@@ -128,7 +128,165 @@ We want the NFS directory automatically mounted on the child nodes when they boo
 	`sudo mount -a`
 	Once you create a file in any node's `/clusterfs` it will be RWable in all other nodes.
 
-The hardware part is done. Coming next we will start to install cluster management framework **Kubernetes**. Later on we may include job scheduler **Slurm** as one of the container service within the Kubernetes cluster.
+## NIS System
+You will need a NIS server in order to synchronize all user's account among the cluster network.
+
+### Configuring NIS Server
+1. Install NIS System on head node
+	```bash
+	sudo apt-get install nis
+	```
+2. Configure this node as master
+	1. Edit the NIS configuration file
+		```bash
+		sudo vim /etc/default/nis
+		```
+		Change the line
+		```
+		NISSERVER=master
+		```
+	2. Select proper access IPs to the NIS
+		```bash
+		sudo vim /etc/ypserv.securenets
+		```
+		Change the line
+		```
+		# This line gives access to everybody. PLEASE ADJUST!
+		# comment out
+		# 0.0.0.0 0.0.0.0
+		# add to the end: IP range you allow to access
+		255.255.255.0   10.0.0.0
+		```
+	3. Modify the Makefile
+		```bash
+		sudo vim /var/yp/Makefile
+		```
+		Change the lines
+		```
+		# line 52: change
+		MERGE_PASSWD=true
+		# line 56: change
+		MERGE_GROUP=true
+		``` 
+		```bash
+		sudo vim /etc/hosts
+		```
+		Add the IP address for NIS
+		```
+		127.0.0.1       localhost
+		# add own IP address for NIS
+		10.0.0.30       dlp.srv.world        dlp
+		```
+
+	4. Update the NIS database
+		```bash
+		/usr/lib/yp/ypinit -m
+		```
+
+		```
+		At this point, we have to construct a list of the hosts which will run NIS
+		servers.  dlp.srv.world is in the list of NIS server hosts.  Please continue to add
+		the names for the other hosts, one per line.  When you are done with the
+		list, type a <control D>.
+		        next host to add:  dlp.srv.world
+		        next host to add:  # Ctrl + D キー
+		The current list of NIS servers looks like this:
+		dlp.srv.world
+		Is this correct?  [y/n: y]  y
+		We need a few minutes to build the databases...
+		Building /var/yp/srv.world/ypservers...
+		Running /var/yp/Makefile...
+		make[1]: Entering directory '/var/yp/srv.world'
+		Updating passwd.byname...
+		Updating passwd.byuid...
+		Updating group.byname...
+		Updating group.bygid...
+		Updating hosts.byname...
+		Updating hosts.byaddr...
+		Updating rpc.byname...
+		Updating rpc.bynumber...
+		Updating services.byname...
+		Updating services.byservicename...
+		Updating netid.byname...
+		Updating protocols.bynumber...
+		Updating protocols.byname...
+		Updating netgroup...
+		Updating netgroup.byhost...
+		Updating netgroup.byuser...
+		Updating shadow.byname... Ignored -> merged with passwd
+		make[1]: Leaving directory '/var/yp/srv.world'
+		dlp.srv.world has been set up as a NIS master server.
+		Now you can run ypinit -s dlp.srv.world on all slave server.
+		```
+
+	5. Restart the NIS service
+		```bash
+		sudo systemctl restart nis
+		```
+3. If you have added users in local servers, apply them to NIS database as well
+	```bash
+	cd /var/yp
+	make
+	```
+
+### Configuring NIS Client
+1. Install NIS System on head node
+	```bash
+	sudo apt-get install nis
+	```
+2. Configure this node as client
+	1. Edit the NIS configuration file
+		```bash
+		sudo vim /etc/yp.conf
+		```
+		Change the line
+		```
+		# ypserver ypserver.network.com
+		# add to the end: [domain name] [server] [NIS server's hostname]
+		domain srv.world server dlp.srv.world
+		```
+	2. Edit NS Switch Config
+		```bash
+		sudo vim /etc/nsswitch.conf
+		```
+		Change the lines
+		```
+		# line 7: add like follows
+		passwd:         compat systemd nis
+		group:          compat systemd nis
+		shadow:         compat nis
+		gshadow:        files
+		hosts:          files dns nis
+		```
+	3. Set the PAM rule for SSH if you wan to create /home/user/ directory automatically
+		```bash
+		sudo vim /etc/pam.d/common-session
+		```
+		Add the lines
+		```
+		# add to the end
+		session optional        pam_mkhomedir.so skel=/etc/skel umask=077
+		```
+
+	4. Restart the NIS
+		```bash
+		sudo systemctl restart rpcbind nis
+		```
+
+	5. Try to logout and login again and see the NIS works
+
+	6. Change the NIS password if you want to 
+		```bash
+		yppasswd
+		Changing NIS account information for bionic on dlp.srv.world.
+		Please enter old password:
+		Changing NIS password for bionic on dlp.srv.world.
+		Please enter new password:
+		Please retype new password:
+		The NIS password has been changed on dlp.srv.world.
+		```
+
+The hardware part is done. Coming next we will start to install the job scheduler **Slurm**.
 
 ## References
 - [Building a Raspberry Pi Cluster](https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd)
