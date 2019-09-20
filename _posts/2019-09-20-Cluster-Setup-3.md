@@ -84,7 +84,9 @@ Slurm commands will be explained after the installation.
 	*Kindly reminder: You may reserve a portion of computation resources in head node to prevent worker tasks jamming Slurm controller services, i.e. set CPUs to 36 and reduce the RAM size in the 'slurm.conf' file*
 
 9. Create a partition
+
 	![alt text](../assets/img/2019-09-20-Cluster-Setup-Part-3/entities.gif "Slurm cluster entites")
+	
 	Partitions in Slurm groups worker nodes into logical sets. Jobs and resources can be assigned by user to specific partitions with each partition running with different priority rules. This encourages different hardware owners to participate in a single cluster by sharing peripheral devices including controller and storage services.
 
 	At the last line of `slurm.conf`, define the partition:
