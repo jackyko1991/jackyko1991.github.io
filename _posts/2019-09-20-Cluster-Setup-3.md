@@ -43,11 +43,11 @@ Slurm commands will be explained after the installation.
 	<ip addr of node02>      node02
 	<ip addr of node03>      node03
 	```
-3. Install the Slurm controller package
+3. Install the Slurm controller package:
 	```bash
 	sudo apt-get install slurm-wlm -y
 	```
-4. Copy and edit the default Slurm configuration file
+4. Copy and edit the default Slurm configuration file:
 	```bash
 	cd /etc/slurm-llnl
 	cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
@@ -86,7 +86,7 @@ Slurm commands will be explained after the installation.
 9. Create a partition
 
 	![alt text](../assets/img/2019-09-20-Cluster-Setup-Part-3/entities.gif "Slurm cluster entites")
-	
+
 	Partitions in Slurm groups worker nodes into logical sets. Jobs and resources can be assigned by user to specific partitions with each partition running with different priority rules. This encourages different hardware owners to participate in a single cluster by sharing peripheral devices including controller and storage services.
 
 	At the last line of `slurm.conf`, define the partition:
