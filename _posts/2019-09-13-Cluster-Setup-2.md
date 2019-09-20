@@ -278,6 +278,8 @@ You will need a NIS server in order to synchronize all user's account among the 
 	6. Change the NIS password if you want to 
 		```bash
 		yppasswd
+		```
+		```
 		Changing NIS account information for bionic on dlp.srv.world.
 		Please enter old password:
 		Changing NIS password for bionic on dlp.srv.world.
