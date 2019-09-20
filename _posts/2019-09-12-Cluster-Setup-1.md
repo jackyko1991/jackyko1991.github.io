@@ -14,7 +14,7 @@ High performance computing (HPC) refers to the high speed calculations and data 
 	- [Detailed device list of HPC cluster](#detailed-device-list-of-hpc-cluster)
 - [How to Maximize the HPC Ability?](#how-to-maximize-the-hpc-ability?)
 - [When will I Need a HPC cluster for Computational Radiology?](#when-will-i-need-a-hpc-cluster-for-computational-radiology?)
- -[Selection of Distributed Resources Management Software](#selection-of-distributed-resources-management-software)
+- [Selection of Distributed Resources Management Software](#selection-of-distributed-resources-management-software)
 
 ## How Does HPC Cluster Work?
 The HPC cluster is an assembly of one or more computational devices, which can be divided into three main components:
@@ -62,6 +62,7 @@ In the coming posts there will be hand on steps to setup a Slurm cluster.
 
 ## References
 - [Building a Raspberry Pi Cluster](https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd)
-- [Deploying a Burstable and Event-driven HPC Cluster on AWS Using SLURM](https://aws.amazon.com/blogs/compute/deploying-a-burstable-and-event-driven-hpc-cluster-on-aws-using-slurm-part-1/)
+- [Deploying a Burstable and Event-driven HPC Cluster on AWS Using SLURM, Part 1](https://aws.amazon.com/blogs/compute/deploying-a-burstable-and-event-driven-hpc-cluster-on-aws-using-slurm-part-1/)
+- [Deploying a Burstable and Event-driven HPC Cluster on AWS Using SLURM, Part 2](https://aws.amazon.com/blogs/compute/deploying-a-burstable-and-event-driven-hpc-cluster-on-aws-using-slurm-part-2/)
 - [Run Swarm and Kubernetes Interchangeably](https://www.docker.com/products/orchestration)
 - [Integrating Kubernetes with Docker Enterprise Edition 2.0 – Top 10 Questions from the Docker Virtual Event](https://blog.docker.com/2018/05/integrating-kubernetes-docker-enterprise-edition-2-0-top-10-questions-docker-virtual-event/)
