@@ -84,7 +84,7 @@ You need to host a NFS server in the head node.
 	2. Export the NFS directory
 	Add following lines to `/etc/exports`:
 	```
-	/clusterfs    <ip-address>/2(rw,sync,no_root_squash,no_subtree_check)
+	/clusterfs    <ip-address>/24(rw,sync,no_root_squash,no_subtree_check)
 	```
 	where `<ip-address>` is the IP of the head node. You may check with router interface or via `ifconfig`. This permission setting allows any clients to mount the shared directory. e.g. if the LAN address is `192.168.0.123`, you will have
 	```

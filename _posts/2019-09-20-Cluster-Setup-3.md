@@ -87,7 +87,7 @@ Slurm commands will be explained after the installation.
 
 	![alt text](../assets/img/2019-09-20-Cluster-Setup-Part-3/entities.gif "Slurm cluster entites")
 
-	Partitions in Slurm groups worker nodes into logical sets. Jobs and resources can be assigned by user to specific partitions with each partition running with different priority rules. This encourages different hardware owners to participate in a single cluster by sharing peripheral devices including controller and storage services.
+	Partitions in Slurm group worker nodes into logical sets. Jobs and resources can be assigned by user to specific partitions with each partition running with different priority rules. This encourages different hardware owners to participate in a single cluster by sharing peripheral devices including controller and storage services.
 
 	At the last line of `slurm.conf`, define the partition:
 	```
@@ -178,7 +178,52 @@ Slurm commands will be explained after the installation.
 Repeat this part for all worker nodes except for head node
 
 1. Install Slurm client
+	```bash
+	sudo apt-get install slurmd slurm-client -y
+	```
+2. Update `/etc/hosts` to resolve other nodes on the worker node, for example on `node02`:
+	```
+	<ip addr>    node01
+	<ip addr>    node03
+	```
+3. Copy the configuration files from shared drives
+	```bash
+	sudo cp /clusterfs/munge.key /etc/munge/munge.key
+	sudo cp /clusterfs/slurm.conf /etc/slurm-llnl/slurm.conf
+	sudo cp /clusterfs/cgroup* /etc/slurm-llnl
+	```
+4. Start Munge
+	```bash
+	sudo systemctl enable munge
+	sudo systemctl start munge
+	```
+5. Test Munge
+	```bash
+	ssh <username>@node01 munge -n | unmunge
+	```
+	You will receive result similar to the following:
+	```
+	STATUS:           Success (0)
+	ENCODE_HOST:      node01
+	ENCODE_TIME:      2018-11-15 15:48:56 -0600 (1542318536)
+	DECODE_TIME:      2018-11-15 15:48:56 -0600 (1542318536)
+	TTL:              300
+	CIPHER:           aes128 (4)
+	MAC:              sha1 (3)
+	ZIP:              none (0)
+	UID:              pi
+	GID:              pi
+	LENGTH:           0
+	```
+	Check `/etc/munge/munge.key` are the same across nodes if you get error.
+6. Start Slurm worker daemon
+	```bash
+	sudo systemctl enable slurmd
+	sudo systemctl start slurmd
+	```
 
+### Check Slurm Work properly
+Login
 
 ## References
 [Building a Raspberry Pi Cluster](https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd)
