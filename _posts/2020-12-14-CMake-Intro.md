@@ -3,7 +3,7 @@ layout: post
 title: "CMake Introduction"
 author: "Jacky Ko"
 categories: journal
-tags: [documentation,clusters,hpc,slurm]
+tags: [documentation,cmake]
 image: 2020-12-14-CMake-Intro/cmake_logo_slider.png
 ---
 
