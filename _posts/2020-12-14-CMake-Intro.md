@@ -6,6 +6,7 @@ categories: journal
 tags: [documentation,cmake]
 image: 2020-12-14-CMake-Intro/cmake.png
 ---
+![alt text](../assets/img/2020-12-14-CMake-Intro/cmake_logo_slider.png "")
 
 **CMake** is a cross-platform open-source software for C++ dependency management. The software generate adequate build system according to different compilers and OS. It supports hierarchial folder structures and multiple third party libraries. The software is used in conjunction with native build environments such as Make, Qt Creator, Ninja, Android Studio, Apple's Xcode, and Microsoft Visual Studio. In short, CMake could generate compiler and workspace specific C/C++ build system with a single `CMakeLists.txt` file.
 
