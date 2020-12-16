@@ -6,10 +6,7 @@ categories: journal
 tags: [documentation,cmake,itk,vtk,opencv,qt]
 image: 2020-12-16-CMake-Medical-Image-Toolchain/full_VisibleWoman.jpg
 ---
-
 To develop desktop medical image software, several essential C++ libraries are recommended for GUI design, graphical rendering and image processing. Here we will provide a detailed instruction on the configuration and compilation of the toolchain.
-
-![alt text](../assets/img/2020-12-16-CMake-Medical-Image-Toolchain/full_VisibleWoman.jpg "")
 
 The toolchain we recommended is cross platform applicable (Windows, MacOS, Linux). The procedure works almost the same on different OS. Also the suggested library packages also provide Python interface for users who are not familiar with C++ coding.
 
