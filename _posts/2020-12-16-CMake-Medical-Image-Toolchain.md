@@ -139,29 +139,6 @@ We recommend to build the toolchain with following folder hierarchy:
 8. Choose `Release` build type and redo step 7 again.
 9. For Unix Makefile (Linux/Unix) users, after step 5 you can use `make` command to build the library. Similar build method applies for XCode.
 
-### ITK
-1. Clone the source code 
-    ```bash
-    git clone -b v4.13.3  https://github.com/Kitware/ITK.git
-    ```
-2. Open CMake and choose the source code directory and binary build directory. Here we choose `Style 1` folder structure.
-
-3. Press `Configure` and choose `Visual Studio 14 2015 Win64` for 64bit build. Wait until first time configuration complete. This step may take around 10 min.
-
-4. Change the following build options. Then press `Configure` again to take effective. 
-    ``` cmake
-    CMAKE_CXX_MP_FLAG:BOOL=ON
-    BUILD_DOCUMENTATION:BOOL=OFF
-    BUILD_EXAMPLES:BOOL=OFF
-    BUILD_SHARED_LIBS:BOOL=ON
-    BUILD_TESTING:BOOL=OFF
-    Module_ITKVtkGlue:BOOL=ON
-    VTK_DIR:PATH=${CMAKE_BINARY_DIR}/VTK-build
-    Module_ITKReview:BOOL=ON
-    ITK_USE_SYSTEM_DOUBLECONVERSION=ON
-    ```
-5. Generate the solution and build
-
 ### OpenCV
 1. Clone the source code 
     ```bash
@@ -182,8 +159,41 @@ We recommend to build the toolchain with following folder hierarchy:
     BUILD_opencv_java:BOOL=OFF
     BUILD_opencv_python3:BOOL=OFF
     WITH_MATLAB:BOOL=OFF
+    
+    # Choose ON if you need OpenCV with CUDA acceleration
     WITH_CUDA:BOOL=OFF
     ```
+
+### ITK
+1. Clone the source code 
+    ```bash
+    git clone -b v4.13.3  https://github.com/Kitware/ITK.git
+    ```
+2. Open CMake and choose the source code directory and binary build directory. Here we choose `Style 1` folder structure.
+
+3. Press `Configure` and choose `Visual Studio 14 2015 Win64` for 64bit build. Wait until first time configuration complete. This step may take around 10 min.
+
+4. Change the following build options. Then press `Configure` again to take effective. 
+    ``` cmake
+    CMAKE_CXX_MP_FLAG:BOOL=ON
+    BUILD_DOCUMENTATION:BOOL=OFF
+    BUILD_EXAMPLES:BOOL=OFF
+    BUILD_SHARED_LIBS:BOOL=ON
+    BUILD_TESTING:BOOL=OFF
+
+    # VTK
+    Module_ITKVtkGlue:BOOL=ON
+    VTK_DIR:PATH=${CMAKE_BINARY_DIR}/VTK-build
+
+    # OpenCV
+    Module_ITKVideoBridgeOpenCV:BOOL=ON
+    OpenCV_DIR:PATH=${CMAKE_BINARY_DIR}/OpenCV-build
+
+    # VMTK requires class in ITKReview
+    Module_ITKReview:BOOL=ON
+    ITK_USE_SYSTEM_DOUBLECONVERSION=ON
+    ```
+5. Generate the solution and build
 
 ## Other Medical Image Libraries
 You can extend the toolchain with other medical image related libraries
@@ -213,8 +223,13 @@ DCMTK is a collection of libraries and applications implementing large parts the
 
 The Vascular Modeling Toolkit is a collection of libraries and tools for 3D reconstruction, geometric analysis, mesh generation and surface data analysis for image-based modeling of blood vessels.
 
-### [ Image Guided Surgery Software Toolkit (IGSTK)](https://github.com/Kitware/IGSTK)
+### [Image Guided Surgery Software Toolkit (IGSTK)](https://github.com/Kitware/IGSTK)
 The Image-Guided Surgery Toolkit (IGSTK) is a framework that integrates a set of high-level components with low-level open source software libraries and application programming interfaces (APIs) from hardware vendors. In addition to its interface to common tracking hardware (e.g., Aurora from Northern Digital Inc.), IGSTK has a GUI.
+
+### [TubeTK](https://github.com/InsightSoftwareConsortium/ITKTubeTK)
+TubeTK is an open-source toolkit for the segmentation, registration, and analysis of tubes and surfaces in images.
+
+Tubes and surfaces, as generalized 1D and 2D manifolds in N-dimensional images, are essential components in a variety of image analysis tasks. Instances of tubular structures in images include blood vessels in magnetic resonance angiograms and b-mode ultrasound images, wires in microscopy images of integrated circuits, roads in aerial photographs, and nerves in confocal microscopy.
 
 ## References
 - [ITK + VTK + QT on Window 7 64bit and Visual Studio 2010 Pro 32bit project](http://guitarcplusplus.blogspot.com/2013/02/itk-vtk-qt-on-window-7-64bit-and-visual.html)
