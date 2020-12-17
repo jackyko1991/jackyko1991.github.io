@@ -175,7 +175,6 @@ We recommend to build the toolchain with following folder hierarchy:
 
 4. Change the following build options. Then press `Configure` again to take effective. 
     ``` cmake
-    CMAKE_CXX_MP_FLAG:BOOL=ON
     BUILD_DOCUMENTATION:BOOL=OFF
     BUILD_EXAMPLES:BOOL=OFF
     BUILD_SHARED_LIBS:BOOL=ON
