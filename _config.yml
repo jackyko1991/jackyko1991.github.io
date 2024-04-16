@@ -21,8 +21,8 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'jackyko1991.github.io'
-description:	       'Computational Radiology 101'
-author:              'Jacky Ko'
+description:	       'Biomedical Image Computation 101'
+author:              'Jacky Ka Long Ko'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
