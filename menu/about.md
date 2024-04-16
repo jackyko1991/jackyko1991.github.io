@@ -2,8 +2,9 @@
 layout: page
 title: About
 ---
-## Computational Radiology 101
 
-Computation radiology is to apply computer techniques and algorithms for radiographic diagnostics and treatments. In this blog I will introduce relevant technologies and hand-on skills to perform the analysis.
+## Biomedical Image Computation 101
+
+Biomedical image computation is a rising field that applies computer vision techniques and algorithms for radiographic and microscopic images. In this blog I will introduce relevant technologies and hand-on skills to perform the analysis.
 
 You may find a detailed blog introduction [here](https://jackyko1991.github.io/journal/Blog-Introduction.html).
